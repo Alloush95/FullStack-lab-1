@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import Recipe from './moudels/schema.js';
-import { connectDB } from './moudels/schema.js';
+import Recipe from './models/schema.js';
+import { connectDB } from './models/schema.js';
 
 dotenv.config();
 

@@ -52,7 +52,6 @@ function updateRecipe(id) {
         const textarea = document.createElement('textarea');
         textarea.value = td.textContent.trim();
         td.textContent = '';
-        console.log(td.textContent);
         td.appendChild(textarea);
     });
 
@@ -84,13 +83,13 @@ function saveRecipe(id) {
         
         body: JSON.stringify(updatedRecipe)
     })
-
     .then(response => {
         if (!response.ok) {
             throw new Error('Failed to update recipe');
         }
         return response.json();
     })
+    .then(confirm('are you sure you want to update this recipe?'))
     .then(() => fetchRecipes())
     .catch(error => console.error('Error updating recipe:', error));
 }
@@ -104,7 +103,7 @@ function deleteRecipe(id) {
         
         
     }
-    location.reload();
+    location.reload();// Refresh the page
 }
 
 function createButton(text, onClick, id) {
