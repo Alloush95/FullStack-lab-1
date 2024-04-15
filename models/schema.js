@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-dotenv.config();
 
+dotenv.config();// Load environment variables from .env file
 const connectionURL = process.env.CONNECTION_URL;
 
 export const connectDB = async () => {
@@ -14,9 +14,6 @@ export const connectDB = async () => {
     }
 }
 
-// Create a collection to store recipe information. Each recipe should have the
-//following properties : id, title, ingredients, instructions, and cookingTime.
-//Add some sample recipes to your collection.
 const recipeSchema = new mongoose.Schema({
     title: { type: String, required: true },
     ingredients: { type: [String], required: true },

@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             body: JSON.stringify(newRecipe)
         })
-        .then(response => response.ok ? fetchRecipes() : Promise.reject('Failed to add recipe'))
+        .then(response => response.ok ? fetchRecipes() : Promise.reject('Failed to add recipe'))// If the response is OK, fetch the recipes
         .then(() => addRecipeForm.reset())
         .catch(error => console.error('Error adding recipe:', error));
     });
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function updateRecipe(id) {
-    const row = document.querySelector(`#recipe-table-body tr[data-id="${id}"]`);
+    const row = document.querySelector(`#recipe-table-body tr[data-id="${id}"]`);// Get the row with the recipe ID
     row.querySelectorAll('td').forEach((td) => {
         const textarea = document.createElement('textarea');
         textarea.value = td.textContent.trim();
